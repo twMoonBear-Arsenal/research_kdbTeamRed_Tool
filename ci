@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+# use . ci to use the main thread to run this shell. 
+# And this is also the reason why no exit 0 in the end.
+
+source ~/.zshrc
+
+clear;
+
+echo 'WD=' $WD;
+cd $WD;
+echo '';
+echo 'RIp=' $RIp;
+ping $RIp -c 1 | grep 'packet loss'
+echo '';
+echo 'LIp=' $LIp;
+ping $LIp -c 1 | grep 'packet loss'
+
+# exit 0;

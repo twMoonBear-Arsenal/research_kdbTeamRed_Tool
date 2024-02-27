@@ -1,0 +1,42 @@
+#!/bin/bash
+# use . i0 to use the main thread to run this shell. 
+# And this is also the reason why no exit 0 in the end.
+
+# check source execution
+# https://tecadmin.net/how-to-identify-a-bash-script-is-sourced-or-executed-directly/
+if [[ "${BASH_SOURCE[0]}" != "" ]];
+then
+    echo 'Error Script has to be run sourced.'; 
+    #echo '${BASH_SOURCE[0]}=' ${BASH_SOURCE[0]}
+    #echo '${0}=' ${0}
+    exit 0
+fi
+
+# clear
+clear;
+
+# change title
+echo '\e[1;32;45m'   $Title   '\e[0m'
+echo ''
+
+# WD
+echo '$WD=' $WD;
+cd $WD;
+
+# LIp
+echo '';
+ping -c 1 -W 1 $LIp > /dev/null
+if [ $? -eq 0 ]; then
+  echo '\e[1;32m''$LIp=' $LIp ", reachable. \e[0m"
+else
+  echo '\e[1;31m''$LIp=' $LIp ", unreachable. \e[0m"
+fi
+
+# RIP
+ping -c 1 -W 1 $RIp > /dev/null
+if [ $? -eq 0 ]; then
+  echo '\e[1;32m''$RIp=' $RIp ", reachable. \e[0m"
+else
+  echo '\e[1;31m''$RIp=' $RIp ", unreachable. \e[0m"
+fi
+

